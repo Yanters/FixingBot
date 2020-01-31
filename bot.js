@@ -15,21 +15,7 @@ bot.on('message', message=>{
  
  let args = message.content.substring(PREFIX.length).split(" ");
  let arg = message.content.toLowerCase();
-  /* if(repeat) 
-    {
-    for (var i=0;i<arg.length;i++)
-        {
-    if(arg[i]=== 'x' && arg[i+1]==='d')
-            {
-            message.channel.sendMessage('XD');
-            repeat = false;
-            }   
-        }
-    }else
-    {
-        repeat=true;
-    }
- */
+  
   for (var i=0;i<arg.length;i++)
         {
     if(arg[i]=== 'c' && arg[i+1]==='r'&& arg[i+1]==='a'&& arg[i+1]==='z'&& arg[i+1]==='e'&& arg[i+1]==='q')
