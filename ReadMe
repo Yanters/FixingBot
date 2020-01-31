@@ -1,0 +1,9 @@
+Available commands:
+- !sin <value> - Calculate the sin of the given angle in degrees.
+- !cos <value> - Calculate the cos of the given angle in degrees.
+- !tg <value> - Calculates the tan of the given angle in degrees.
+- !ctg <value> - Calculate the cot from the given angle in degrees.
+- !graph <sin / cos / tg / ctg> - Shows the graph of the given function.
+
+Example of use:
+https://www.youtube.com/watch?v=vg7w43aNEX0
