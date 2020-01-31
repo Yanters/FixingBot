@@ -1,7 +1,8 @@
 const {Client, Attachment} = require('discord.js');
 const bot = new Client();
 const PREFIX = '!';
-
+const cheerio = require('cheerio'); 
+const request = require('request');
 
 bot.on('ready', () =>{
     console.log('This bot is online!');
