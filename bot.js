@@ -5,10 +5,11 @@ const mysql = require("mysql");
 
 
 var con = mysql.createConnection({
-    host: "https://www.mkwk019.cba.pl/mysql/index.php?token=e20cb33a50b88d78a28885d12222b279",
+    host: "db4free.net",
+    port: "3306",
     user: "konradoslaw",
-    password: "zaq1@WSX",
-    database: "konradowo",
+    password: "Acocieto?",
+    database: "projekty",
 
 });
 
