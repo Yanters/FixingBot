@@ -5,7 +5,7 @@ const mysql = require("mysql");
 
 
 var con = mysql.createConnection({
-    host: "https://www.mkwk019.cba.pl/",
+    host: "https://www.mkwk019.cba.pl/mysql/",
     user: "konradoslaw",
     password: "zaq1@WSX",
     database: "konradowo",
