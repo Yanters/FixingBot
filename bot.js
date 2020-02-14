@@ -57,9 +57,9 @@ bot.on('message', message=>{
             var lastelement = args.length;
            var reasons = "";
             for (var i = 2; i <= lastelement - 2; i++) {
-                reasons = reasons + args[i];
+                reasons = reasons +" "+ args[i];
             }
-            message.channel.sendMessage("Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + args[lastelement-1]);
+            message.channel.sendMessage("> Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + args[lastelement-1]);
           
            break;
     }
