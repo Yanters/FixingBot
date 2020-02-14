@@ -30,7 +30,7 @@ bot.on('message', message=>{
   switch(args[0]){
     
       
-        case 'suspect':
+         case 'suspect':
 
             //    !suspect Gitara520 D02, D03, D04, D05 imgur.com/
             //           0      1                           n-1
@@ -39,7 +39,10 @@ bot.on('message', message=>{
             for (var i = 2; i <= lastelement - 2; i++) {
                 reasons = reasons +" "+ args[i];
             }
-            con.query("INSERT INTO Wanted (Nick, Reasons, Proof, Data, Reporter) VALUES ($args[1], $reasons, $args[lastelement-1], 'today','Yanter.RC')", err=> {
+            let stmt = `INSERT INTO Wanted (Nick, Reasons, Proof)
+            VALUES(?,?,?)`;
+let todo = [args[1] , reasons , args[lastelement-1]];
+            con.query(stmt, todo, (err)=> {
                 if(err) throw err;
                 console.log("Successfully added to the database!");
             });
