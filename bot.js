@@ -39,7 +39,7 @@ bot.on('message', message=>{
             for (var i = 2; i <= lastelement - 2; i++) {
                 reasons = reasons +" "+ args[i];
             }
-            con.query("INSERT INTO Wanted (Nick, Reasons, Proof, Data, Reporter) VALUES ('args[1]', 'reasons', 'args[lastelement-1]', 'today','Yanter.RC')", err=> {
+            con.query("INSERT INTO Wanted (Nick, Reasons, Proof, Data, Reporter) VALUES ('${args[1]}', '${reasons}', '${args[lastelement-1]}', 'today','Yanter.RC')", err=> {
                 if(err) throw err;
                 console.log("Successfully added to the database!");
             });
