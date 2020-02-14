@@ -39,11 +39,16 @@ bot.on('message', message=>{
             for (var i = 2; i <= lastelement - 2; i++) {
                 reasons = reasons +" "+ args[i];
             }
+            con.query('INSERT INTO Wanted (Nick, Reasons, Proof) VALUES (args[1], reasons, args[lastelement-1])', err=> {
+                if(err) throw err;
+                console.log("Successfully added to the database!");
+            });
             message.channel.sendMessage("> Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + args[lastelement-1]);
           
            break;
       case 'amnestia':
-          //deleting all data base
+          //deleting all database
+          break;
     }
  
 });
