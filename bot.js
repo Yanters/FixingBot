@@ -29,27 +29,7 @@ bot.on('message', message=>{
  let args = message.content.substring(PREFIX.length).split(" ");
   switch(args[0]){
     
-        case 'sin':
-            var a = parseFloat(args[1]);
-            a = Math.sin(a* Math.PI / 180);
-            message.channel.sendMessage(a.toFixed(4));
-            break;
-        case 'cos':
-            var a = parseFloat(args[1]);
-            a = Math.cos(a* Math.PI / 180);
-            message.channel.sendMessage(a.toFixed(4));
-            break;
-        case 'tg':
-            var a = parseFloat(args[1]);
-            a = Math.tan(a* Math.PI / 180);
-            message.channel.sendMessage(a.toFixed(4));
-            break;
-        case 'ctg':
-            var a = parseFloat(args[1]);
-            a = Math.tan(a* Math.PI / 180);
-            a = Math.pow(a,-1);
-            message.channel.sendMessage(a.toFixed(4));
-            break;
+      
         case 'suspect':
 
             //    !suspect Gitara520 D02, D03, D04, D05 imgur.com/
@@ -62,6 +42,8 @@ bot.on('message', message=>{
             message.channel.sendMessage("> Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + args[lastelement-1]);
           
            break;
+      case 'amnestia':
+          //deleting all data base
     }
  
 });
