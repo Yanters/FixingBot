@@ -16,7 +16,7 @@ var con = mysql.createConnection({
 con.connect(err => {
     if(err) throw err;
    console.log("Connected to database!");
-   con.query("SHOW TABLES", console.log);
+
 });
 
 bot.on('ready', () =>{
@@ -39,7 +39,7 @@ bot.on('message', message=>{
             for (var i = 2; i <= lastelement - 2; i++) {
                 reasons = reasons +" "+ args[i];
             }
-            con.query('INSERT INTO Wanted (Nick, Reasons, Proof) VALUES (args[1], reasons, args[lastelement-1])', err=> {
+            con.query("INSERT INTO Wanted (Nick, Reasons, Proof) VALUES ('${args[1]}', '${reasons}', '${args[lastelement-1]}')", err=> {
                 if(err) throw err;
                 console.log("Successfully added to the database!");
             });
