@@ -52,14 +52,15 @@ bot.on('message', message=>{
             break;
         case 'suspect':
 
-            //    !suspect Gitara520 D02, D03, D04, D05 imgur.com/
+           /* //    !suspect Gitara520 D02, D03, D04, D05 imgur.com/
             //           0      1                           n-1
             var lastelement = args.length;
             for (var i = 2; i <= lastelement - 1; i++) {
                 var reasons = reasons + args[i];
-            }
-            message.channel.sendMessage("Wanted: ", args[1], " Reasons: ", reasons, " Proof: ", args[lastelement]);
-            break;
+            }*/
+           // message.channel.sendMessage("Wanted: ", args[1], " Reasons: ", reasons, " Proof: ", args[lastelement]);
+           message.channel.sendMessage(args); 
+           break;
     }
  
 });
