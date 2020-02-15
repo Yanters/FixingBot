@@ -49,6 +49,12 @@ let todo = [args[1] , reasons , args[lastelement-1]];
             message.channel.sendMessage("> Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + args[lastelement-1]);
           
            break;
+           case 'caught':
+            con.prepare(`DELETE FROM Wanted WHERE Nick = '${args[1]}'`, err => {
+                if(err) throw err;
+                console.log(args[1]+ 'has been cought!');
+            })
+          break;
       case 'amnestia':
           //deleting all database
           break;
