@@ -57,11 +57,11 @@ let todo = [args[1] , reasons , args[lastelement-1]];
             message.channel.sendMessage(args[1]+ ' has been cought!');
           break;
       case 'amnestia':
-        /*con.query(`DELETE FROM Wanted WHERE ID > '0'`, err => {
+        con.query(`DELETE FROM Wanted WHERE ID != 0`, err => {
             if(err) throw err;
             console.log('Amnesia has been done correctly!');
         });
-        message.channel.sendMessage('Amnesia has been done correctly!');*/
+        message.channel.sendMessage('Amnesia has been done correctly!');
           break;
     }
  
