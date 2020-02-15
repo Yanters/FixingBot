@@ -43,13 +43,16 @@ bot.on('message', message=>{
             VALUES(?,?,?,?)`;
            
             const now = new Date();
-            const czasomierz = `${now.getDate()}.${now.getMonth()+1}.${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`
-            if(now.getMonth >= 10)
+            const czasomierz;
+            if(now.getMonth >= 10 && now.getDate >=10)
             {
-                message.channel.sendMessage("więcej, równe niż 10")
-            }else
+                czasomierz = `${now.getDate()}.${now.getMonth()+1}.${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`
+            }else if(now.getMonth < 10 && now.getDate >=10)
             {
-                message.channel.sendMessage(`0${now.getMonth()+1}`)
+                czasomierz = `${now.getDate()}.0${now.getMonth()+1}.${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`
+            }else if(now.getMonth >= 10 && now.getDate <10)
+            {
+                czasomierz = `0${now.getDate()}.0${now.getMonth()+1}.${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`
             }
 let todo = [args[1] , reasons , args[lastelement-1], czasomierz];
             con.query(stmt, todo, (err)=> {
