@@ -44,18 +44,21 @@ bot.on('message', message=>{
            
             const now = new Date();
             var czasomierz= ``;
-            if(now.getMonth >= 10 && now.getDate >=10)
+            if((now.getMonth()+1) >= 10 && now.getDate() >=10)
             {
                 czasomierz = `${now.getDate()}.${now.getMonth()+1}.${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`;
-            }else if(now.getMonth < 10 && now.getDate >=10)
+            }else if((now.getMonth()+1) < 10 && now.getDate() >=10)
             {
                 czasomierz = `${now.getDate()}.0${now.getMonth()+1}.${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`;
-            }else if(now.getMonth >= 10 && now.getDate <10)
+            }else if((now.getMonth()+1) >= 10 && now.getDate() <10)
+            {
+                czasomierz = `0${now.getDate()}.${now.getMonth()+1}.${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`;
+            }else if((now.getMonth()+1) < 10 && now.getDate() <10)
             {
                 czasomierz = `0${now.getDate()}.0${now.getMonth()+1}.${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`;
             }else
             {
-                czasomierz = 'Blad';
+                czasomierz = `Blad`;
             }
 let todo = [args[1] , reasons , args[lastelement-1], czasomierz];
             con.query(stmt, todo, (err)=> {
