@@ -43,7 +43,7 @@ bot.on('message', message=>{
             VALUES(?,?,?,?)`;
            
             const now = new Date();
-            const czasomierz;
+            var czasomierz= ``;
             if(now.getMonth >= 10 && now.getDate >=10)
             {
                 czasomierz = `${now.getDate()}.${now.getMonth()+1}.${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`
