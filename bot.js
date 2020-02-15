@@ -65,7 +65,7 @@ let todo = [args[1] , reasons , args[lastelement-1], czasomierz, message.author.
                 if(err) throw err;
                 console.log("Successfully added to the database!");
             });
-            message.channel.sendMessage("> Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + args[lastelement-1]);
+            message.channel.sendMessage("> Sucessfully added to database: \n Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + args[lastelement-1]);
           
            break;
            case 'caught':
