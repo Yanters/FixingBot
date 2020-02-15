@@ -43,7 +43,7 @@ bot.on('message', message=>{
             VALUES(?,?,?,?)`;
            
             const now = new Date();
-            const czasomierz = `  ${now.getDate()} . ${now.getMonth()+1} . ${now.getFullYear()} " " ${now.getHours()} : ${now.getMinutes()} `
+            const czasomierz = `${now.getDate()}.${now.getMonth()+1}.${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`
             
 let todo = [args[1] , reasons , args[lastelement-1], czasomierz];
             con.query(stmt, todo, (err)=> {
