@@ -44,7 +44,13 @@ bot.on('message', message=>{
            
             const now = new Date();
             const czasomierz = `${now.getDate()}.${now.getMonth()+1}.${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`
-            
+            if(now.getMonth >= 10)
+            {
+                message.channel.sendMessage("więcej, równe niż 10")
+            }else
+            {
+                message.channel.sendMessage(`0${now.getMonth()+1}`)
+            }
 let todo = [args[1] , reasons , args[lastelement-1], czasomierz];
             con.query(stmt, todo, (err)=> {
                 if(err) throw err;
