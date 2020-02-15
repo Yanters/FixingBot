@@ -46,7 +46,7 @@ let todo = [args[1] , reasons , args[lastelement-1]];
                 if(err) throw err;
                 console.log("Successfully added to the database!");
             });
-            message.channel.sendMessage(">Added to the file: \n Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + args[lastelement-1]);
+            message.channel.sendMessage("> Added to the file: \n Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + args[lastelement-1]);
           
            break;
            case 'caught':
