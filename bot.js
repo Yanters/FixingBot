@@ -39,8 +39,8 @@ bot.on('message', message=>{
             for (var i = 2; i <= lastelement - 2; i++) {
                 reasons = reasons +" "+ args[i];
             }
-            let stmt = `INSERT INTO Wanted (Nick, Reasons, Proof, Data)
-            VALUES(?,?,?,?)`;
+            let stmt = `INSERT INTO Wanted (Nick, Reasons, Proof, Data, Reporter)
+            VALUES(?,?,?,?,?)`;
            
             const now = new Date();
             var czasomierz= ``;
@@ -60,7 +60,7 @@ bot.on('message', message=>{
             {
                 czasomierz = `Blad`;
             }
-let todo = [args[1] , reasons , args[lastelement-1], czasomierz];
+let todo = [args[1] , reasons , args[lastelement-1], czasomierz, message.author.username];
             con.query(stmt, todo, (err)=> {
                 if(err) throw err;
                 console.log("Successfully added to the database!");
