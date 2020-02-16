@@ -128,6 +128,7 @@ bot.on('message', message=>{
             con.query("SELECT Nick, Reasons, Proof, Data, Reporter FROM Wanted", function (err, result, fields) {
                 if (err) throw err;
                 message.channel.sendMessage(result[0].Nick);
+                console.log(result.length);
               });
           break;
     }
