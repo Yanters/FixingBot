@@ -125,16 +125,16 @@ bot.on('message', message=>{
         message.channel.sendMessage('Amnesia has been done correctly!')
         .then(m => m.delete(3000));
           break;
-          case 'suspectlist':
+          case 'list':
             con.query("SELECT Nick, Reasons, Proof, Data, Reporter FROM Wanted", function (err, result, fields) {
                 if (err) throw err;
                 for(var i = 0 ; i < result.length ; i ++){
                     var exampleEmbed = new Discord.RichEmbed()
                         .setColor('#A40000')
                         .setTitle('Wanted:  ' + result[i].Nick)
-                        .setDescription(` ** Reasons: ** *${result[i].Reasons}* Proof: ${result[i].Proof}`)
-                        .addField(`** Date ** : *${result[i].Data}*`)
-                        .addField(`** Reporter: ** *${result[i].Reporter}*`);
+                        .setDescription(` ** Reasons: ** ${result[i].Reasons} \n ** Proof **: * ${result[i].Proof} * `)
+                        .addField(`** Date ** :`,` *${result[i].Data}*`)
+                        .addField(`** Reporter: **`,`*${result[i].Reporter}*`);
                     
                         message.channel.sendMessage(exampleEmbed);   
                 
