@@ -97,23 +97,23 @@ bot.on('message', message=>{
             if(args.length>2)
             {
                message.delete(1);
-               message.channel.sendMessage('Wpisz poprawnie komendę: !caught nick')
+               message.channel.sendMessage('> Wpisz poprawnie komendę: !caught nick')
                .then(m => m.delete(3000));
                break;
             }
             con.query(`DELETE FROM Wanted WHERE Nick = '${args[1]}'`, err => {
                 if(err) throw err;
-                console.log(args[1]+ ' has been cought!');
+                console.log('>' args[1]+ ' has been cought!');
             });
             message.delete(1);
-            message.channel.sendMessage(args[1]+ ' has been cought!')
+            message.channel.sendMessage('>' + args[1]+ ' has been cought!')
             .then(m => m.delete(3000));
           break;
       case 'amnestia':
          if(args.length>1)
          {
             message.delete(1);
-            message.channel.sendMessage('Wpisz poprawnie komendę: !amnestia')
+            message.channel.sendMessage('> Wpisz poprawnie komendę: !amnestia')
             .then(m => m.delete(3000));
             break;
          }
@@ -122,7 +122,7 @@ bot.on('message', message=>{
             console.log('Amnesia has been done correctly!');
         });
         message.delete(1);
-        message.channel.sendMessage('Amnesia has been done correctly!')
+        message.channel.sendMessage('> Amnesia has been done correctly!')
         .then(m => m.delete(3000));
           break;
           case 'list':
