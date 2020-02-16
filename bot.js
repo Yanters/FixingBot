@@ -128,7 +128,7 @@ bot.on('message', message=>{
             con.query("SELECT Nick, Reasons, Proof, Data, Reporter FROM Wanted", function (err, result, fields) {
                 if (err) throw err;
                 for(var i = 0 ; i < result.length ; i ++){
-                message.channel.sendMessage("> Wanted: " + result[i].Nick + " Reasons: " + result[i].Reasons + " Proof: " + result[i].Proof + " Data: "+ result[i].Data + " Reporter: "+ result[i].Reporter);
+                message.channel.sendMessage("> Wanted: " + result[i].Nick + "\n Reasons: " + result[i].Reasons + "\n Proof: " + result[i].Proof + "\n Data: "+ result[i].Data + "\n Reporter: "+ result[i].Reporter);
              } });
           break;
     }
