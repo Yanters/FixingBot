@@ -103,10 +103,10 @@ bot.on('message', message=>{
             }
             con.query(`DELETE FROM Wanted WHERE Nick = '${args[1]}'`, err => {
                 if(err) throw err;
-                console.log('>'+ args[1]+ ' has been cought!');
+                console.log(args[1] `has been cought!`);
             });
             message.delete(1);
-            message.channel.sendMessage('>' + args[1]+ ' has been cought!')
+            message.channel.sendMessage(`> ${args[1]} has been cought!`)
             .then(m => m.delete(3000));
           break;
       case 'amnestia':
