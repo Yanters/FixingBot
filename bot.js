@@ -30,7 +30,7 @@ bot.on('message', message=>{
  let args = message.content.substring(PREFIX.length).split(" ");
   switch(args[0]){
          case 'clear':
-            // Member doesn't have permissions
+            /* // Member doesn't have permissions
             if (!message.member.hasPermission("MANAGE_MESSAGES")) {
                 return message.reply("You can't delete messages....").then(m => m.delete(3000));
             }
@@ -52,9 +52,8 @@ bot.on('message', message=>{
             } else {
                 deleteAmount = parseInt(args[1]);
                 
-            }
-            message.channel.bulkDelete(deleteAmount, true)
-                .then(deleted => message.channel.send(`I deleted \`${deleted.size}\` messages.`))
+            }*/
+            message.channel.bulkDelete(3, true)
                 .then(m => m.delete(3000));
             break;         
       
