@@ -33,10 +33,10 @@ bot.on('message', message=>{
          case 'suspect':
 
             //    !suspect Gitara520 D02, D03, D04, D05 imgur.com/
-            //           0      1                           n-1
+            //           0      1      2                    3
             var lastelement = args.length;
            var reasons = "";
-           var proof = "";
+           var proof = 0;
            var pproof= "";
             for (var i = 2; i <= lastelement - 2; i++) {
                 if(args[i]!="[ATAK]"){
@@ -46,6 +46,10 @@ bot.on('message', message=>{
                     proof=i;
                     break;
                 }
+            }
+            if(proof == 0)
+            {
+                proof = lastelement - 1;
             }
             for (var i = proof; i <= lastelement - 1; i++) {
                 pproof= pproof +" "+ args[i];
