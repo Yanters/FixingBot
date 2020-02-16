@@ -92,8 +92,7 @@ bot.on('message', message=>{
                 console.log("Successfully added to the database!");
             });
             message.delete(1);
-             message.channel.sendMessage("> Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + pproof)
-            .then(m => m.delete(3000));
+             
             
             message.channel.bulkDelete(100, true)
             .then(m => m.delete(3000));
@@ -126,8 +125,7 @@ bot.on('message', message=>{
                 console.log(`${args[1]} has been cought!`);
             });
             message.delete(1);
-            message.channel.sendMessage(`> ${args[1]} has been cought!`)
-            .then(m => m.delete(3000));
+            
             }   
             message.channel.bulkDelete(100, true)
             .then(m => m.delete(3000));
@@ -145,11 +143,11 @@ bot.on('message', message=>{
                 
              } });
             break;
-      case 'amnestia':
+      case 'amnesia':
          if(args.length>1)
          {
             message.delete(1);
-            message.channel.sendMessage('> Wpisz poprawnie komendę: !amnestia')
+            message.channel.sendMessage('> Wpisz poprawnie komendę: !amnesia')
             .then(m => m.delete(3000));
             message.channel.bulkDelete(100, true)
             .then(m => m.delete(3000));
@@ -173,8 +171,7 @@ bot.on('message', message=>{
             console.log('Amnesia has been done correctly!');
         });
         message.delete(1);
-        message.channel.sendMessage('> Amnesia has been done correctly!')
-        .then(m => m.delete(3000));
+        
           break;
           case 'ddd':
             con.query("SELECT Nick, Reasons, Proof, Data, Reporter FROM Wanted", function (err, result, fields) {
