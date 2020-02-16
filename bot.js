@@ -84,22 +84,41 @@ bot.on('message', message=>{
                 console.log("Successfully added to the database!");
             });
             message.channel.sendMessage("> Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + pproof);
+            message.channel.bulkDelete(2, true)
+                .then(m => m.delete(3000));
           
            break;
            case 'caught':
+            if(args.length>2)
+            {
+               message.channel.sendMessage('Wpisz poprawnie komendę: !caught nick');
+               message.channel.bulkDelete(2, true)
+                .then(m => m.delete(3000));
+               break;
+            }
             con.query(`DELETE FROM Wanted WHERE Nick = '${args[1]}'`, err => {
                 if(err) throw err;
                 console.log(args[1]+ ' has been cought!');
             });
             message.channel.sendMessage(args[1]+ ' has been cought!');
+            message.channel.bulkDelete(2, true)
+                .then(m => m.delete(3000));
           break;
       case 'amnestia':
-         
+         if(args.length>1)
+         {
+            message.channel.sendMessage('Wpisz poprawnie komendę: !amnestia');
+            message.channel.bulkDelete(2, true)
+                .then(m => m.delete(3000));
+            break;
+         }
         con.query(`DELETE FROM Wanted WHERE ID != 0`, err => {
             if(err) throw err;
             console.log('Amnesia has been done correctly!');
         });
         message.channel.sendMessage('Amnesia has been done correctly!');
+        message.channel.bulkDelete(2, true)
+                .then(m => m.delete(3000));
           break;
     }
  
