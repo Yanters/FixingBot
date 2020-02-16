@@ -94,7 +94,7 @@ bot.on('message', message=>{
             message.delete(1);
              
             
-            message.channel.bulkDelete(100, true)
+            message.channel.bulkDelete(50, true)
             .then(m => m.delete(3000));
             con.query("SELECT Nick, Reasons, Proof, Data, Reporter FROM Wanted", function (err, result, fields) {
                 if (err) throw err;
@@ -127,7 +127,7 @@ bot.on('message', message=>{
             message.delete(1);
             
             }   
-            message.channel.bulkDelete(100, true)
+            message.channel.bulkDelete(50, true)
             .then(m => m.delete(3000));
             con.query("SELECT Nick, Reasons, Proof, Data, Reporter FROM Wanted", function (err, result, fields) {
                 if (err) throw err;
@@ -149,7 +149,7 @@ bot.on('message', message=>{
             message.delete(1);
             message.channel.sendMessage('> Wpisz poprawnie komendę: !amnesia')
             .then(m => m.delete(3000));
-            message.channel.bulkDelete(100, true)
+            message.channel.bulkDelete(50, true)
             .then(m => m.delete(3000));
             con.query("SELECT Nick, Reasons, Proof, Data, Reporter FROM Wanted", function (err, result, fields) {
                 if (err) throw err;
