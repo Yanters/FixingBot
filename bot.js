@@ -29,7 +29,7 @@ bot.on('message', message=>{
  
  let args = message.content.substring(PREFIX.length).split(" ");
   switch(args[0]){
-         case 'clear':
+         case 'ccc':
             message.channel.bulkDelete(3, true)
                 .then(m => m.delete(3000));
             break;         
@@ -94,7 +94,23 @@ bot.on('message', message=>{
             message.delete(1);
              message.channel.sendMessage("> Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + pproof)
             .then(m => m.delete(3000));
-          
+            
+            message.channel.bulkDelete(100, true)
+            .then(m => m.delete(3000));
+            con.query("SELECT Nick, Reasons, Proof, Data, Reporter FROM Wanted", function (err, result, fields) {
+                if (err) throw err;
+                for(var i = 0 ; i < result.length ; i ++){
+                    var exampleEmbed = new Discord.RichEmbed()
+                        .setColor('#A40000')
+                        .setTitle('Wanted:  ' + result[i].Nick)
+                        .setDescription(` ** Reasons: ** ${result[i].Reasons} \n ** Proof: **  ${result[i].Proof}  `)
+                        .addField(`** Date: ** `,` *${result[i].Data}*`)
+                        .addField(`** Reporter: **`,`*${result[i].Reporter}*`);
+                    
+                        message.channel.sendMessage(exampleEmbed);   
+                
+             } });
+
            break;
            case 'caught':
             if(args.length>2)
@@ -113,6 +129,21 @@ bot.on('message', message=>{
             message.channel.sendMessage(`> ${args[1]} has been cought!`)
             .then(m => m.delete(3000));
             }   
+            message.channel.bulkDelete(100, true)
+            .then(m => m.delete(3000));
+            con.query("SELECT Nick, Reasons, Proof, Data, Reporter FROM Wanted", function (err, result, fields) {
+                if (err) throw err;
+                for(var i = 0 ; i < result.length ; i ++){
+                    var exampleEmbed = new Discord.RichEmbed()
+                        .setColor('#A40000')
+                        .setTitle('Wanted:  ' + result[i].Nick)
+                        .setDescription(` ** Reasons: ** ${result[i].Reasons} \n ** Proof: **  ${result[i].Proof}  `)
+                        .addField(`** Date: ** `,` *${result[i].Data}*`)
+                        .addField(`** Reporter: **`,`*${result[i].Reporter}*`);
+                    
+                        message.channel.sendMessage(exampleEmbed);   
+                
+             } });
             break;
       case 'amnestia':
          if(args.length>1)
@@ -120,6 +151,21 @@ bot.on('message', message=>{
             message.delete(1);
             message.channel.sendMessage('> Wpisz poprawnie komendę: !amnestia')
             .then(m => m.delete(3000));
+            message.channel.bulkDelete(100, true)
+            .then(m => m.delete(3000));
+            con.query("SELECT Nick, Reasons, Proof, Data, Reporter FROM Wanted", function (err, result, fields) {
+                if (err) throw err;
+                for(var i = 0 ; i < result.length ; i ++){
+                    var exampleEmbed = new Discord.RichEmbed()
+                        .setColor('#A40000')
+                        .setTitle('Wanted:  ' + result[i].Nick)
+                        .setDescription(` ** Reasons: ** ${result[i].Reasons} \n ** Proof: **  ${result[i].Proof}  `)
+                        .addField(`** Date: ** `,` *${result[i].Data}*`)
+                        .addField(`** Reporter: **`,`*${result[i].Reporter}*`);
+                    
+                        message.channel.sendMessage(exampleEmbed);   
+                
+             } });
             break;
          }
         con.query(`DELETE FROM Wanted WHERE ID != 0`, err => {
@@ -130,7 +176,7 @@ bot.on('message', message=>{
         message.channel.sendMessage('> Amnesia has been done correctly!')
         .then(m => m.delete(3000));
           break;
-          case 'list':
+          case 'ddd':
             con.query("SELECT Nick, Reasons, Proof, Data, Reporter FROM Wanted", function (err, result, fields) {
                 if (err) throw err;
                 for(var i = 0 ; i < result.length ; i ++){
