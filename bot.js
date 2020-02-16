@@ -91,8 +91,7 @@ bot.on('message', message=>{
                 if(err) throw err;
                 console.log("Successfully added to the database!");
             });
-            message.delete(1);
-             
+                       
             
             message.channel.bulkDelete(50, true)
             .then(m => m.delete(3000));
@@ -114,7 +113,7 @@ bot.on('message', message=>{
            case 'caught':
             if(args.length>2)
             {
-               message.delete(1);
+                message.delete(1);
                message.channel.sendMessage('> Wpisz poprawnie komendę: !caught nick')
                .then(m => m.delete(3000));
                break;
@@ -124,7 +123,7 @@ bot.on('message', message=>{
                 if(err) throw err;
                 console.log(`${args[1]} has been cought!`);
             });
-            message.delete(1);
+            
             
             }   
             message.channel.bulkDelete(50, true)
