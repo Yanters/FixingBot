@@ -132,8 +132,8 @@ bot.on('message', message=>{
                     var exampleEmbed = new Discord.RichEmbed()
                         .setColor('#A40000')
                         .setTitle('Wanted:  ' + result[i].Nick)
-                        .setDescription(` ** Reasons: ** ${result[i].Reasons} \n ** Proof **: * ${result[i].Proof} * `)
-                        .addField(`** Date ** :`,` *${result[i].Data}*`)
+                        .setDescription(` ** Reasons: ** ${result[i].Reasons} \n ** Proof: **  ${result[i].Proof}  `)
+                        .addField(`** Date: ** `,` *${result[i].Data}*`)
                         .addField(`** Reporter: **`,`*${result[i].Reporter}*`);
                     
                         message.channel.sendMessage(exampleEmbed);   
