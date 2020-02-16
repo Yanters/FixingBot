@@ -47,7 +47,7 @@ bot.on('message', message=>{
                 }
             }
             for (var i = proof; i <= lastelement - 1; i++) {
-                proof= proof + args[i];
+                proof= proof +" "+ args[i];
             }
             let stmt = `INSERT INTO Wanted (Nick, Reasons, Proof, Data, Reporter)
             VALUES(?,?,?,?,?)`;
@@ -70,12 +70,12 @@ bot.on('message', message=>{
             {
                 czasomierz = `Blad`;
             }
-let todo = [args[1] , reasons , args[lastelement-1], czasomierz, message.author.username];
+let todo = [args[1] , reasons , proof, czasomierz, message.author.username];
             con.query(stmt, todo, (err)=> {
                 if(err) throw err;
                 console.log("Successfully added to the database!");
             });
-            message.channel.sendMessage("> Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + args[lastelement-1]);
+            message.channel.sendMessage("> Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + proof);
           
            break;
            case 'caught':
