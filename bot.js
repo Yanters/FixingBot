@@ -101,14 +101,14 @@ bot.on('message', message=>{
                .then(m => m.delete(3000));
                break;
             }
-            con.query(`DELETE FROM Wanted WHERE Nick = '${args[1]}'`, err => {
+            con.query(`DELETE FROM Wanted WHERE Nick = ${args[1]}`, err => {
                 if(err) throw err;
                 console.log(args[1] `has been cought!`);
             });
             message.delete(1);
             message.channel.sendMessage(`> ${args[1]} has been cought!`)
             .then(m => m.delete(3000));
-          break;
+            break;
       case 'amnestia':
          if(args.length>1)
          {
