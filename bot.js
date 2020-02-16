@@ -124,6 +124,12 @@ bot.on('message', message=>{
         message.channel.sendMessage('Amnesia has been done correctly!')
         .then(m => m.delete(3000));
           break;
+          case 'suspectlist':
+            con.query("SELECT Nick, Reasons, Proof, Data, Reporter FROM Wanted", function (err, result, fields) {
+                if (err) throw err;
+                console.log(result);
+              });
+          break;
     }
  
 });
