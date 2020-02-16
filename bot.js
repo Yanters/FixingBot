@@ -127,7 +127,7 @@ bot.on('message', message=>{
           case 'suspectlist':
             con.query("SELECT Nick, Reasons, Proof, Data, Reporter FROM Wanted", function (err, result, fields) {
                 if (err) throw err;
-                console.log(fields);
+                console.log(result);
               });
           break;
     }
