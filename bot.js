@@ -55,23 +55,30 @@ bot.on('message', message=>{
            
             const now = new Date();
             var czasomierz= ``;
-            if((now.getMonth()+1) >= 10 && now.getDate() >=10)
-            {
-                czasomierz = `${now.getDate()}.${now.getMonth()+1}.${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`;
-            }else if((now.getMonth()+1) < 10 && now.getDate() >=10)
-            {
-                czasomierz = `${now.getDate()}.0${now.getMonth()+1}.${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`;
-            }else if((now.getMonth()+1) >= 10 && now.getDate() <10)
-            {
-                czasomierz = `0${now.getDate()}.${now.getMonth()+1}.${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`;
-            }else if((now.getMonth()+1) < 10 && now.getDate() <10)
-            {
-                czasomierz = `0${now.getDate()}.0${now.getMonth()+1}.${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`;
+                               
+             if(now.getDate() >=10)
+             {
+                czasomierz = `${now.getDate()}`;
+             }else
+             {
+                czasomierz = `0${now.getDate()}`;
+             }
+             if((now.getMonth()+1) >= 10)
+             {
+                 czasomierz = czasomierz + `.${now.getMonth()+1}.${now.getFullYear()} ${now.getHours()}:`;
             }else
             {
-                czasomierz = `Blad`;
+               czasomierz = czasomierz + `.0${now.getMonth()+1}.${now.getFullYear()} ${now.getHours()}:`
             }
-let todo = [args[1] , reasons , pproof, czasomierz, message.author.username];
+            if((now.getMinutes()) >= 10)
+            {
+                czasomierz = czasomierz + `${now.getMinutes()}`;
+            }else
+            {
+                czasomierz = czasomierz + `0${now.getMinutes()}`;
+            }
+
+            let todo = [args[1] , reasons , pproof, czasomierz, message.author.username];
             con.query(stmt, todo, (err)=> {
                 if(err) throw err;
                 console.log("Successfully added to the database!");
