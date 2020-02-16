@@ -83,7 +83,7 @@ bot.on('message', message=>{
                 if(err) throw err;
                 console.log("Successfully added to the database!");
             });
-            message.channel.sendMessage("> Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + pproof);
+            message.channel.sendMessage("> Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + pproof)
             .then(m => m.delete(3000));
           
            break;
