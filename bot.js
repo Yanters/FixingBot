@@ -100,7 +100,8 @@ bot.on('message', message=>{
                message.channel.sendMessage('> Wpisz poprawnie komendę: !caught nick')
                .then(m => m.delete(3000));
                break;
-            }
+            }else
+            {
             con.query(`DELETE FROM Wanted WHERE Nick = ${args[1]}`, err => {
                 if(err) throw err;
                 console.log(args[1] `has been cought!`);
@@ -108,6 +109,7 @@ bot.on('message', message=>{
             message.delete(1);
             message.channel.sendMessage(`> ${args[1]} has been cought!`)
             .then(m => m.delete(3000));
+            }   
             break;
       case 'amnestia':
          if(args.length>1)
