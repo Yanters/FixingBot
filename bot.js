@@ -102,7 +102,7 @@ bot.on('message', message=>{
                break;
             }else
             {
-            con.query(`DELETE FROM Wanted WHERE Nick = ${args[1]}`, err => {
+            con.query(`DELETE FROM Wanted WHERE Nick = '${args[1]}'`, err => {
                 if(err) throw err;
                 console.log(args[1] `has been cought!`);
             });
