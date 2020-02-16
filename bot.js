@@ -84,8 +84,7 @@ bot.on('message', message=>{
                 console.log("Successfully added to the database!");
             });
             message.channel.sendMessage("> Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + pproof);
-            message.channel.bulkDelete(2, true)
-                .then(m => m.delete(3000));
+            .then(m => m.delete(3000));
           
            break;
            case 'caught':
