@@ -36,8 +36,18 @@ bot.on('message', message=>{
             //           0      1                           n-1
             var lastelement = args.length;
            var reasons = "";
+           var proof = "";
             for (var i = 2; i <= lastelement - 2; i++) {
+                if(args[i]!="[ATAK]"){
                 reasons = reasons +" "+ args[i];
+                }else
+                {
+                    proof=i;
+                    break;
+                }
+            }
+            for (var i = proof; i <= lastelement - 1; i++) {
+                proof= proof + args[i];
             }
             let stmt = `INSERT INTO Wanted (Nick, Reasons, Proof, Data, Reporter)
             VALUES(?,?,?,?,?)`;
@@ -65,7 +75,7 @@ let todo = [args[1] , reasons , args[lastelement-1], czasomierz, message.author.
                 if(err) throw err;
                 console.log("Successfully added to the database!");
             });
-            message.channel.sendMessage("> Sucessfully added to database: \n Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + args[lastelement-1]);
+            message.channel.sendMessage("> Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + args[lastelement-1]);
           
            break;
            case 'caught':
@@ -76,6 +86,7 @@ let todo = [args[1] , reasons , args[lastelement-1], czasomierz, message.author.
             message.channel.sendMessage(args[1]+ ' has been cought!');
           break;
       case 'amnestia':
+         
         con.query(`DELETE FROM Wanted WHERE ID != 0`, err => {
             if(err) throw err;
             console.log('Amnesia has been done correctly!');
