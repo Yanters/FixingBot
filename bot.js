@@ -37,6 +37,7 @@ bot.on('message', message=>{
             var lastelement = args.length;
            var reasons = "";
            var proof = "";
+           var pproof= "";
             for (var i = 2; i <= lastelement - 2; i++) {
                 if(args[i]!="[ATAK]"){
                 reasons = reasons +" "+ args[i];
@@ -47,7 +48,7 @@ bot.on('message', message=>{
                 }
             }
             for (var i = proof; i <= lastelement - 1; i++) {
-                proof= proof +" "+ args[i];
+                pproof= pproof +" "+ args[i];
             }
             let stmt = `INSERT INTO Wanted (Nick, Reasons, Proof, Data, Reporter)
             VALUES(?,?,?,?,?)`;
@@ -70,12 +71,12 @@ bot.on('message', message=>{
             {
                 czasomierz = `Blad`;
             }
-let todo = [args[1] , reasons , proof, czasomierz, message.author.username];
+let todo = [args[1] , reasons , pproof, czasomierz, message.author.username];
             con.query(stmt, todo, (err)=> {
                 if(err) throw err;
                 console.log("Successfully added to the database!");
             });
-            message.channel.sendMessage("> Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + proof);
+            message.channel.sendMessage("> Wanted: " + args[1] + " Reasons: " + reasons + " Proof: " + pproof);
           
            break;
            case 'caught':
