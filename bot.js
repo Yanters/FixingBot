@@ -4,6 +4,9 @@ const bot = new Client();
 const PREFIX = '!';
 const mysql = require("mysql");
 
+function OOblicz(x) {
+  return x*x*x-x*x+3;
+}
 
 var con = mysql.createConnection({
     host: "db4free.net",
