@@ -5,7 +5,7 @@ const PREFIX = '!';
 const mysql = require("mysql");
 
 function OOblicz(x) {
-  return x*x*x-x*x+3;
+  return parseFloat(x*x*x-x*x+3);
 }
 
 var con = mysql.createConnection({
