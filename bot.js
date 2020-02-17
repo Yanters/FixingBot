@@ -43,6 +43,9 @@ bot.on('message', message=>{
              b = args[2];
              
              console.log ("a: "+ a + " b: "+ b);
+             a/=(1/3);
+             b/=(2/5);
+             console.log ("a: "+ a + " b: "+ b);
              console.log("parseFloat a: " + parseFloat(OOblicz(a)));
              console.log("parseFloat b: " + parseFloat(OOblicz(b)));
              
