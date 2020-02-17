@@ -52,7 +52,13 @@ bot.on('message', message=>{
                  message.channel.sendMessage(parseFloat(a.toFixed(20)));
              if (parseFloat(OOblicz(b.toFixed(20)))==0)
                  message.channel.sendMessage(parseFloat(b.toFixed(20)));
-
+             if(parseFloat(OOblicz(a.toFixed(20)))*parseFloat(OOblicz(b.toFixed(20))) >= 0)
+                    {
+                       message.channel.sendMessage(`W zakresie <${args[1]}:${args[2]}> nie istnieje przecięcie.`);
+                        break;
+                    }
+                      
+                      
                  while(Math.abs(a-b) > eps)
                  {
                      c = (a+b)/2.0;
