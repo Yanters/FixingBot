@@ -5,7 +5,7 @@ const PREFIX = '!';
 const mysql = require("mysql");
 
 function OOblicz(x) {
-  return parseFloat(x*x*x-x*x+3);
+  return Float64Array(x*x*x-x*x+3);
 }
 
 var con = mysql.createConnection({
@@ -46,12 +46,12 @@ bot.on('message', message=>{
         while(Math.abs(a-b) > eps)
         {
             c = (a+b)/2.0;
-            if (parseFloat(OOblicz(c))==0)
+            if (Float64Array(OOblicz(c))==0)
             {
                 message.channel.sendMessage(c);
                 break;
             }
-            if (parseFloat(OOblicz(a)*OOblicz(c))<0)
+            if (Float64Array(OOblicz(a)*OOblicz(c))<0)
                 b = c;
             else
                 a = c;
