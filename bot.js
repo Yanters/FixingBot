@@ -4,11 +4,6 @@ const bot = new Client();
 const PREFIX = '!';
 const mysql = require("mysql");
 const EPSILON = 0.0000001;
-
-
-
-
-
     
 
 var con = mysql.createConnection({
@@ -47,31 +42,10 @@ bot.on('message', message=>{
              a = args[1];
              b = args[2];
              
+             console.log ("a: "+ a + " b: "+ b);
+             console.log("parseFloat a: " + parseFloat(OOblicz(a)));
+             console.log("parseFloat b: " + parseFloat(OOblicz(b)));
              
-             if (parseFloat(OOblicz(a))==0)
-                 message.channel.sendMessage(parseFloat(a));
-             if (parseFloat(OOblicz(b))==0)
-                 message.channel.sendMessage(parseFloat(b));
-             while(Math.abs(a-b) > eps)
-             {
-                 c = (a+b)/2.0;
-                 if (parseFloat(OOblicz(c))==0)
-                 {
-                     message.channel.sendMessage(parseFloat(c));
-                     break;
-                 }
-                 if (parseFloat(OOblicz(a))*parseFloat(OOblicz(c))<0)
-                    b = c;
-                 else
-                     a = c;
-             }
-             if(isNaN(parseFloat(c)))
-             {
-               message.channel.sendMessage(`W zakresie <${args[1]}:${args[2]}> nie istnieje przecięcie.`);
-             }else
-             {
-            message.channel.sendMessage(parseFloat(c));
-             }
              break;
          case 'ccc':
             message.channel.bulkDelete(3, true)
