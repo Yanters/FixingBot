@@ -3,11 +3,37 @@ const Discord = require('discord.js');
 const bot = new Client();
 const PREFIX = '!';
 const mysql = require("mysql");
+const EPSILON = 0.0000001;
 
-function OOblicz(x) {
-  return (x*x*x-x*x+3);
+
+
+function func(x) {
+  return x*x*x-x*x+2;
 }
 
+function bisection(a,b)
+{
+    if (func(a) * func(b) >= 0) 
+    { 
+        message.channel.sendMessage("You have not assumed right a and b"); 
+        return; 
+    } 
+    var c = a;
+    while ((b-a) >= EPSILON) 
+    { 
+        
+        c = (a+b)/2; 
+  
+        
+        if (func(c) == 0.0) 
+            break; 
+        else if (func(c)*func(a) < 0) 
+            b = c; 
+        else
+            a = c; 
+    } 
+    message.channel.sendMessage(`The value of root is :  ${c}`); 
+} 
 var con = mysql.createConnection({
     host: "db4free.net",
     port: "3306",
@@ -33,36 +59,17 @@ bot.on('message', message=>{
  let args = message.content.substring(PREFIX.length).split(" ");
   switch(args[0]){
           case 'oblicz':
-        ///Kod ZZP
-         var eps = 0.0000001;
-        var a=0.1, b=0.1, c=0.1;
-        a = args[1];
-        b = args[2];
-        
-        if (OOblicz(a)==0)
-            message.channel.sendMessage(a);
-        if (OOblicz(b)==0)
-            message.channel.sendMessage(b);
-        while(Math.abs(a-b) > eps)
-        {
-            c = (a+b)/2.0;
-            if (parseFloat(OOblicz(c))==0)
-            {
-                message.channel.sendMessage(c);
-                break;
-            }
-            if (parseFloat(OOblicz(a)*OOblicz(c))<0)
-                b = c;
-            else
-                a = c;
-        }
-        if(isNaN(c))
+            var a =0.0, b = 0.0;
+            a = args[1];
+            b= args[2];
+            bisection(a, b); 
+       /* if(isNaN(c))
         {
           message.channel.sendMessage(`W zakresie <${args[1]}:${args[2]}> nie istnieje przecięcie.`);
         }else
         {
        message.channel.sendMessage(c);
-        }
+        }*/
 
         break;
          case 'ccc':
