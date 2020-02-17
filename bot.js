@@ -32,8 +32,8 @@ bot.on('message', message=>{
   switch(args[0]){
           case 'oblicz':
             function OOblicz(x) {
-                console.log(Math.round(x*x*x-x*x+3, 10));
-                return Math.round(x*x*x-x*x+3, 10);
+                console.log(x*x*x-x*x+3);
+                return Math.round(x*x*x-x*x+3);
               }
              
              ///Kod ZZP
@@ -43,6 +43,9 @@ bot.on('message', message=>{
              b = args[2];
              
              console.log ("a: "+ a + " b: "+ b);
+             a/=(1/3);
+             b/=(2/5);
+             console.log ("a: "+ a + " b: "+ b);
              console.log("parseFloat a: " + parseFloat(OOblicz(a)));
              console.log("parseFloat b: " + parseFloat(OOblicz(b)));
              if (parseFloat(OOblicz(a))==0)
@@ -50,8 +53,27 @@ bot.on('message', message=>{
              if (parseFloat(OOblicz(b))==0)
                  message.channel.sendMessage(parseFloat(b));
 
-
-             break;
+                 while(Math.abs(a-b) > eps)
+                 {
+                     c = (a+b)/2.0;
+                     if (parseFloat(OOblicz(c))==0)
+                     {
+                         message.channel.sendMessage(parseFloat(c));
+                         break;
+                     }
+                     if (parseFloat(OOblicz(a))*parseFloat(OOblicz(c))<0)
+                        b = c;
+                     else
+                         a = c;
+                 }
+                 if(isNaN(parseFloat(c)))
+                 {
+                   message.channel.sendMessage(`W zakresie <${args[1]}:${args[2]}> nie istnieje przecięcie.`);
+                 }else
+                 {
+                message.channel.sendMessage(parseFloat(c));
+                 }
+                 break;
          case 'ccc':
             message.channel.bulkDelete(3, true)
                 .then(m => m.delete(3000));
