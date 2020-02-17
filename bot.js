@@ -43,43 +43,43 @@ bot.on('message', message=>{
              a = parseFloat(args[1]);
              b = parseFloat(args[2]);
              
-             console.log ("a: "+ a + " b: "+ b);
+             console.log ("a: "+ a.toFixed(20) + " b: "+ b.toFixed(20));
             
-             console.log ("a: "+ a + " b: "+ b);
-             console.log("parseFloat a: " + parseFloat(OOblicz(a)));
-             console.log("parseFloat b: " + parseFloat(OOblicz(b)));
-             if (parseFloat(OOblicz(a))==0)
-                 message.channel.sendMessage(parseFloat(a));
-             if (parseFloat(OOblicz(b))==0)
-                 message.channel.sendMessage(parseFloat(b));
+             console.log ("a: "+ a.toFixed(20) + " b: "+ b.toFixed(20));
+             console.log("parseFloat a: " + parseFloat(OOblicz(a.toFixed(20))));
+             console.log("parseFloat b: " + parseFloat(OOblicz(b.toFixed(20))));
+             if (parseFloat(OOblicz(a.toFixed(20)))==0)
+                 message.channel.sendMessage(parseFloat(a.toFixed(20)));
+             if (parseFloat(OOblicz(b.toFixed(20)))==0)
+                 message.channel.sendMessage(parseFloat(b.toFixed(20)));
 
                  while(Math.abs(a-b) > eps)
                  {
                      c = (a+b)/2.0;
                      c = c.toFixed(20);
-                     console.log("c:  "+c);
-                     if (parseFloat(OOblicz(c))==0)
+                     console.log("c:  "+c.toFixed(20));
+                     if (parseFloat(OOblicz(c.toFixed(20)))==0)
                      {
-                         message.channel.sendMessage(parseFloat(c));
+                         message.channel.sendMessage(parseFloat(c.toFixed(20)));
                          break;
                      }
-                     if (parseFloat(OOblicz(a))*parseFloat(OOblicz(c))<0)
+                     if (parseFloat(OOblicz(a.toFixed(20)))*parseFloat(OOblicz(c.toFixed(20)))<0)
                      {
                         b = c;
-                        b = b.toFixed(20);
+                        
                      }
                      else
                      {
                          a = c;
-                         a = a.toFixed(20);
+                        
                      }
                  }
-                 if(isNaN(parseFloat(c)))
+                 if(isNaN(parseFloat(c.toFixed(20))))
                  {
                    message.channel.sendMessage(`W zakresie <${args[1]}:${args[2]}> nie istnieje przecięcie.`);
                  }else
                  {
-                message.channel.sendMessage(parseFloat(c));
+                message.channel.sendMessage(parseFloat(c.toFixed(20)));
                  }
                  break;
          case 'ccc':
