@@ -11,29 +11,9 @@ function func(x) {
   return x*x*x-x*x+2;
 }
 
-function bisection(a,b)
-{
-    if (func(a) * func(b) >= 0) 
-    { 
-        message.channel.sendMessage("You have not assumed right a and b"); 
-        return; 
-    } 
-    var c = a;
-    while ((b-a) >= EPSILON) 
-    { 
-        
-        c = (a+b)/2; 
-  
-        
-        if (func(c) == 0.0) 
-            break; 
-        else if (func(c)*func(a) < 0) 
-            b = c; 
-        else
-            a = c; 
-    } 
-    message.channel.sendMessage(`The value of root is :  ${c}`); 
-} 
+
+    
+
 var con = mysql.createConnection({
     host: "db4free.net",
     port: "3306",
@@ -62,7 +42,26 @@ bot.on('message', message=>{
             var a =0.0, b = 0.0;
             a = args[1];
             b= args[2];
-            bisection(a, b); 
+            if (func(a) * func(b) >= 0) 
+    { 
+        message.channel.sendMessage("You have not assumed right a and b"); 
+        return; 
+    } 
+    var c = a;
+    while ((b-a) >= EPSILON) 
+    { 
+        
+        c = (a+b)/2; 
+  
+        
+        if (func(c) == 0.0) 
+            break; 
+        else if (func(c)*func(a) < 0) 
+            b = c; 
+        else
+            a = c; 
+    } 
+    message.channel.sendMessage(`The value of root is :  ${c}`); 
        /* if(isNaN(c))
         {
           message.channel.sendMessage(`W zakresie <${args[1]}:${args[2]}> nie istnieje przecięcie.`);
