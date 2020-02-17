@@ -7,9 +7,6 @@ const EPSILON = 0.0000001;
 
 
 
-function func(x) {
-  return x*x*x-x*x+2;
-}
 
 
     
@@ -39,38 +36,43 @@ bot.on('message', message=>{
  let args = message.content.substring(PREFIX.length).split(" ");
   switch(args[0]){
           case 'oblicz':
-            var a =0.0, b = 0.0;
-            a = args[1];
-            b= args[2];
-            if (func(a) * func(b) >= 0) 
-    { 
-        message.channel.sendMessage("You have not assumed right a and b"); 
-        return; 
-    } 
-    var c = a;
-    while ((b-a) >= EPSILON) 
-    { 
-        
-        c = (a+b)/2; 
-  
-        
-        if (func(c) == 0.0) 
-            break; 
-        else if (func(c)*func(a) < 0) 
-            b = c; 
-        else
-            a = c; 
-    } 
-    message.channel.sendMessage(`The value of root is :  ${c}`); 
-       /* if(isNaN(c))
-        {
-          message.channel.sendMessage(`W zakresie <${args[1]}:${args[2]}> nie istnieje przecięcie.`);
-        }else
-        {
-       message.channel.sendMessage(c);
-        }*/
-
-        break;
+            function OOblicz(x) {
+                console.log(x*x*x-x*x+3);
+                return (x*x*x-x*x+3);
+              }
+             
+             ///Kod ZZP
+             var eps = 0.0000001;
+             var a=0.1, b=0.1, c=0.1;
+             a = args[1];
+             b = args[2];
+             
+             
+             if (parseFloat(OOblicz(a))==0)
+                 message.channel.sendMessage(parseFloat(a));
+             if (parseFloat(OOblicz(b))==0)
+                 message.channel.sendMessage(parseFloat(b));
+             while(Math.abs(a-b) > eps)
+             {
+                 c = (a+b)/2.0;
+                 if (parseFloat(OOblicz(c))==0)
+                 {
+                     message.channel.sendMessage(parseFloat(c));
+                     break;
+                 }
+                 if (parseFloat(OOblicz(a))*parseFloat(OOblicz(c))<0)
+                    b = c;
+                 else
+                     a = c;
+             }
+             if(isNaN(parseFloat(c)))
+             {
+               message.channel.sendMessage(`W zakresie <${args[1]}:${args[2]}> nie istnieje przecięcie.`);
+             }else
+             {
+            message.channel.sendMessage(parseFloat(c));
+             }
+             break;
          case 'ccc':
             message.channel.bulkDelete(3, true)
                 .then(m => m.delete(3000));
