@@ -56,7 +56,7 @@ bot.on('message', message=>{
                  while(Math.abs(a-b) > eps)
                  {
                      c = (a+b)/2.0;
-                     c = c.toFixed(20);
+                     
                      console.log("c:  "+c.toFixed(20));
                      if (parseFloat(OOblicz(c.toFixed(20)))==0)
                      {
