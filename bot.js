@@ -55,6 +55,7 @@ bot.on('message', message=>{
                  while(Math.abs(a-b) > eps)
                  {
                      c = (a+b)/2.0;
+                     console.log("c:  "+c)
                      if (parseFloat(OOblicz(c))==0)
                      {
                          message.channel.sendMessage(parseFloat(c));
