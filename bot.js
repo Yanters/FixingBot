@@ -32,8 +32,9 @@ bot.on('message', message=>{
   switch(args[0]){
           case 'oblicz':
             function OOblicz(x) {
-                console.log(x*x*x-x*x+3);
-                return Math.round(x*x*x-x*x+3);
+                var zmienna = x*x*x-x*x+3;
+                console.log(zmienna.toFixed(20));
+                return zmienna.toFixed(20)
               }
              
              ///Kod ZZP
@@ -55,6 +56,7 @@ bot.on('message', message=>{
                  while(Math.abs(a-b) > eps)
                  {
                      c = (a+b)/2.0;
+                     c = c.toFixed(20);
                      console.log("c:  "+c)
                      if (parseFloat(OOblicz(c))==0)
                      {
@@ -62,9 +64,15 @@ bot.on('message', message=>{
                          break;
                      }
                      if (parseFloat(OOblicz(a))*parseFloat(OOblicz(c))<0)
+                     {
                         b = c;
+                        b = b.toFixed(20);
+                     }
                      else
+                     {
                          a = c;
+                         a = a.toFixed(20);
+                     }
                  }
                  if(isNaN(parseFloat(c)))
                  {
