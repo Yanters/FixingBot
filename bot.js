@@ -46,7 +46,7 @@ bot.on('message', message=>{
         while(Math.abs(a-b) > eps)
         {
             c = (a+b)/2.0;
-            if (parseFloat(falsz);(OOblicz(c))==0)
+            if (parseFloat(OOblicz(c))==0)
             {
                 message.channel.sendMessage(c);
                 break;
