@@ -43,12 +43,17 @@ bot.on('message', message=>{
              b = args[2];
              
              console.log ("a: "+ a + " b: "+ b);
-             a = a / (1/3);
-             b = b / (2/5);
+             a/=(1/3);
+             b/=(2/5);
              console.log ("a: "+ a + " b: "+ b);
              console.log("parseFloat a: " + parseFloat(OOblicz(a)));
              console.log("parseFloat b: " + parseFloat(OOblicz(b)));
-             
+             if (parseFloat(OOblicz(a))==0)
+                 message.channel.sendMessage(parseFloat(a));
+             if (parseFloat(OOblicz(b))==0)
+                 message.channel.sendMessage(parseFloat(b));
+
+
              break;
          case 'ccc':
             message.channel.bulkDelete(3, true)
