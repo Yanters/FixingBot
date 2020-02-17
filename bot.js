@@ -34,7 +34,7 @@ bot.on('message', message=>{
             function OOblicz(x) {
                 var zmienna = x*x*x-x*x+3;
                 console.log(zmienna.toFixed(20));
-                return zmienna.toFixed(20)
+                return zmienna.toFixed(20);
               }
              
              ///Kod ZZP
@@ -57,7 +57,7 @@ bot.on('message', message=>{
                  {
                      c = (a+b)/2.0;
                      c = c.toFixed(20);
-                     console.log("c:  "+c)
+                     console.log("c:  "+c);
                      if (parseFloat(OOblicz(c))==0)
                      {
                          message.channel.sendMessage(parseFloat(c));
