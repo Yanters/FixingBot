@@ -32,8 +32,8 @@ bot.on('message', message=>{
   switch(args[0]){
           case 'oblicz':
             function OOblicz(x) {
-                console.log(x*x*x-x*x+3);
-                return (((x*x*x))-((x*x))+3);
+                console.log(Round(x*x*x-x*x+3, 10));
+                return Round(x*x*x-x*x+3, 10);
               }
              
              ///Kod ZZP
