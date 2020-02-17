@@ -29,6 +29,33 @@ bot.on('message', message=>{
  
  let args = message.content.substring(PREFIX.length).split(" ");
   switch(args[0]){
+          case 'oblicz':
+        ///Kod ZZP
+         var eps = 0.0000001;
+        var a=0.1, b=0.1, c=0.1;
+        a = args[1];
+        b = args[2];
+        
+        if (OOblicz(a)==0)
+            message.channel.sendMessage(a);
+        if (OOblicz(b)==0)
+            message.channel.sendMessage(b);
+        while(Math.abs(a-b) > eps)
+        {
+            c = (a+b)/2.0;
+            if (OOblicz(c)==0)
+            {
+                message.channel.sendMessage(c);
+                break;
+            }
+            if (OOblicz(a)*OOblicz(c)<0)
+                b = c;
+            else
+                a = c;
+        }
+       message.channel.sendMessage(c);
+
+        break;
          case 'ccc':
             message.channel.bulkDelete(3, true)
                 .then(m => m.delete(3000));
