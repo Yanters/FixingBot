@@ -38,9 +38,9 @@ bot.on('message', message=>{
              
              ///Kod ZZP
              var eps = 0.0000001;
-             var a=0.1, b=0.1, c=0.1;
-             a = args[1];
-             b = args[2];
+             var a=0.0, b=0.0, c=0.0;
+             a = parseFloat(args[1]);
+             b = parseFloat(args[2]);
              
              console.log ("a: "+ a + " b: "+ b);
             
