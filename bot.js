@@ -56,7 +56,13 @@ bot.on('message', message=>{
             else
                 a = c;
         }
+        if(isNaN(c))
+        {
+          message.channel.sendMessage(`W zakresie <${args[1]}:${args[2]}> nie istnieje przecięcie.`);
+        }else
+        {
        message.channel.sendMessage(c);
+        }
 
         break;
          case 'ccc':
