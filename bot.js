@@ -32,7 +32,7 @@ bot.on('message', message=>{
   switch(args[0]){
           case 'oblicz':
             function OOblicz(x) {
-                var zmienna = x*x*x-x*x+3;
+                var zmienna = args[1];
                 console.log(zmienna.toFixed(20));
                 return zmienna.toFixed(20);
               }
@@ -40,8 +40,8 @@ bot.on('message', message=>{
              ///Kod ZZP
              var eps = 0.0000001;
              var a=0.0, b=0.0, c=0.0;
-             a = parseFloat(args[1]);
-             b = parseFloat(args[2]);
+             a = parseFloat(args[2]);
+             b = parseFloat(args[3]);
              
              console.log ("a: "+ a.toFixed(20) + " b: "+ b.toFixed(20));
             
