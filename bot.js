@@ -33,7 +33,7 @@ bot.on('message', message=>{
           case 'oblicz':
             function OOblicz(x) {
                 var zmienna = args[1];
-                console.log(zmienna.toFixed(20));
+                
                 return zmienna.toFixed(20);
               }
              
