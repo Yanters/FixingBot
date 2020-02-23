@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const bot = new Client();
 const PREFIX = '!';
 const mysql = require("mysql");
-const EPSILON = 0.0000001;
+const EPSILON = 0.000001;
 
 
 var con = mysql.createConnection({
