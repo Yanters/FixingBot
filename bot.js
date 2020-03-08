@@ -7,11 +7,11 @@ const EPSILON = 0.000001;
 
 
 var con = mysql.createConnection({
-    host: "db4free.net",
-    port: "3306",
-    user: "konradoslaw",
-    password: "Acocieto?",
-    database: "projekty",
+    host: "XXX",
+    port: "XXX",
+    user: "XXX",
+    password: "XXX",
+    database: "XXX",
 
 });
 
