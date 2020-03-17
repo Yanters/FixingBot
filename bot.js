@@ -3,15 +3,15 @@ const Discord = require('discord.js');
 const bot = new Client();
 const PREFIX = '!';
 const mysql = require("mysql");
-const EPSILON = 0.000001;
+
 
 
 var con = mysql.createConnection({
-    host: "XXX",
-    port: "XXX",
-    user: "XXX",
-    password: "XXX",
-    database: "XXX",
+    host: "db4free.net",
+    port: "3306",
+    user: "konradoslaw",
+    password: "Acocieto?",
+    database: "projekty",
 
 });
 
