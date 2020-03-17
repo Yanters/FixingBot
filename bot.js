@@ -207,6 +207,8 @@ bot.on('message', message => {
 
                     }
                 });
+                message.channel.bulkDelete(50, true)
+                .then(m => m.delete(3000));
                 break;
             }
             con.query(`DELETE FROM Wanted WHERE ID != 0`, err => {
