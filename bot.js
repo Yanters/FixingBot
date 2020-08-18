@@ -1,7 +1,7 @@
 const { Client, Attachment } = require('discord.js');
 const Discord = require('discord.js');
 const bot = new Client();
-const client = new discord.client();
+const client = new discord.Client();
 const PREFIX = '!';
 const mysql = require("mysql");
 
