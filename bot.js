@@ -235,12 +235,12 @@ bot.on('message', message => {
             });
             break;
             case 'embeds':
-            let channel = bot.channels.cache.get('745367107310715020');
+            //let channel = bot.channels.cache.get('745367107310715020');
             const embed = new Discord.MessageEmbed()
                 .setColor(0xffffff)
                 .setTitle("Pick your roles!")
                 .setDescription(`🤣 Cry boy \n\n 😉 Hello There `)
-                channel.send(embed).then(async msg=> {
+                message.channel.send(embed).then(async msg=> {
                     await msg.react("🤣");
                     await msg.react("😉");
                 })
