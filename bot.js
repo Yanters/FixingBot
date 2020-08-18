@@ -1,6 +1,6 @@
 //const { Client, Attachment } = require('discord.js');
-const Discord = require('discord.js');
-const bot = new Discord.Client();
+const discord = require('discord.js');
+const bot = new discord.Client();
 const PREFIX = '!';
 const mysql = require("mysql");
 
@@ -235,13 +235,13 @@ bot.on('message', message => {
             });
             break;
             case 'embeds':
-            //let channel = bot.channels.cache.find(channel => channel.id==='745367151472541779')
+            let channel1 = bot.channels.cache.find(channel => channel.id==='745367151472541779')
             
             const embed = new Discord.MessageEmbed()
                 .setColor(0xffffff)
                 .setTitle("Pick your roles!")
                 .setDescription(`🤣 Cry boy \n\n 😉 Hello There `)
-                send(embed).then(async msg=> {
+                channel1.send(embed).then(async msg=> {
                     await msg.react("🤣");
                     await msg.react("😉");
                 })
