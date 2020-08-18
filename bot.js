@@ -235,7 +235,7 @@ bot.on('message', message => {
             });
             break;
             case 'embeds':
-            let channel = bot.channels.cache.get("745367107310715020");
+            let channel = Client.channels.cache.get("745367107310715020");
             const embed = new Discord.MessageEmbed()
                 .setColor(0xffffff)
                 .setTitle("Pick your roles!")
