@@ -241,7 +241,7 @@ bot.on('message', message => {
                 .setColor(0xffffff)
                 .setTitle("Pick your roles!")
                 .setDescription(`🤣 Cry boy \n\n 😉 Hello There `)
-                message.channel.sendMessage(embed).then(async msg=> {
+                send(embed).then(async msg=> {
                     await msg.react("🤣");
                     await msg.react("😉");
                 })
